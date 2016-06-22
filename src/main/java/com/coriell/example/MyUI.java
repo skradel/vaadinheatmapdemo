@@ -41,6 +41,7 @@ public class MyUI extends UI {
         	boolean newstate = state == null ? false : !state.booleanValue();
         	heat.getConfiguration().getColorAxis().setStartOnTick(newstate);
         	heat.getConfiguration().getColorAxis().setEndOnTick(newstate);
+        	heat.drawChart();
         });
 
         layout.addComponents(heat, button, tick);
