@@ -35,8 +35,15 @@ public class MyUI extends UI {
         	heat.getConfiguration().getLegend().setEnabled(state == null ? false : !state.booleanValue());
         	heat.drawChart();
         });
+        
+        Button tick = new Button("Toggle colorAxis.startOnTick", click -> {
+        	Boolean state = heat.getConfiguration().getColorAxis().getStartOnTick();
+        	boolean newstate = state == null ? false : !state.booleanValue();
+        	heat.getConfiguration().getColorAxis().setStartOnTick(newstate);
+        	heat.getConfiguration().getColorAxis().setEndOnTick(newstate);
+        });
 
-        layout.addComponents(heat, button);
+        layout.addComponents(heat, button, tick);
         layout.setMargin(true);
         layout.setSpacing(true);
         
